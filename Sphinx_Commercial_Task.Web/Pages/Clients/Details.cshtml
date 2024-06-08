@@ -1,0 +1,85 @@
+﻿@page
+@model Sphinx_Commercial_Task.Web.Pages.Clients.DetailsModel
+
+<form method="post">
+	<div class="row pb-2">
+		<h2 class="text-primary pl-3">Client Details </h2>
+	</div>
+	<input hidden asp-for="Client.Id" />
+	<div class="border p-3 mt-4">
+		 
+		<div class="mb-3">
+			<label asp-for="Client.Code"></label>
+			<input asp-for="Client.Code" disabled class="form-control" />
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="Client.Name"></label>
+			<input asp-for="Client.Name" disabled class="form-control" />
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="Client.State"></label>
+			<input asp-for="Client.State" disabled class="form-control" />
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="Client.Class"></label>
+			<input asp-for="Client.Class" disabled class="form-control" />
+		</div>
+		 
+		<a asp-page="ListAllClients" class="btn btn-secondary" style="width:150px;"> Back to List</a>
+	</div>
+
+</form>
+
+
+@if(Model.ClientProductList.Count==0)
+{
+	<div class="row pb-2">
+		<h2 class="text-primary pl-3">This Client does not have any product yet. </h2>
+	</div>
+}else
+{
+	<div class="container p-3">
+		<div class="row pt-4">
+
+			<div class="row pb-2">
+				<h2 class="text-primary pl-3">All ClientProduct Details </h2>
+			</div>
+
+		</div>
+
+		<br /><br />
+
+		<table class="table table-bordered table-striped" style="width:100%">
+			<thead>
+				<tr>
+					<th>Product Id</th>
+					<th>Product Name</th>
+					<th>Product Description</th>
+					<th>Start Date</th>
+					<th>End Date</th>
+					<th>License</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var obj in Model.ClientProductList)
+				{
+					<tr>
+						<td>@obj.Product.Id</td>
+						<td>@obj.Product.Name</td>
+						<td>@obj.Product.Description</td>
+						<td>@obj.StartDate</td>
+						<td>@obj.EndDate</td>
+						<td>@obj.License</td>
+					</tr>
+				}
+
+			</tbody>
+		</table>
+
+	</div>
+}
+
+

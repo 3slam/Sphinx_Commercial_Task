@@ -1,0 +1,78 @@
+﻿@page
+@model Sphinx_Commercial_Task.Web.Pages.Products.DetailsModel
+ 
+<form method="post">
+	<div class="row pb-2">
+		<h2 class="text-primary pl-3">Product Details </h2>
+	</div>
+	<input hidden asp-for="Product.Id" />
+	<div class="border p-3 mt-4">
+
+		<div class="mb-3">
+			<label asp-for="Product.Name"></label>
+			<input asp-for="Product.Name" disabled class="form-control" />
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="Product.Description"></label>
+			<input asp-for="Product.Description" disabled class="form-control" />
+		</div>
+	 
+
+		<a asp-page="ListAllProducts" class="btn btn-secondary" style="width:150px;"> Back to List</a>
+	</div>
+
+</form>
+
+
+@if (Model.ClientProductList.Count == 0)
+{
+	<div class="row pb-2">
+		<h2 class="text-primary pl-3">This Product does not have any Clients yet. </h2>
+	</div>
+}
+else
+{
+	<div class="container p-3">
+		<div class="row pt-4">
+
+			<div class="row pb-2">
+				<h2 class="text-primary pl-3">All ClientProduct Details </h2>
+			</div>
+
+		</div>
+
+		<br /><br />
+
+		<table class="table table-bordered table-striped" style="width:100%">
+			<thead>
+				<tr>
+					<th>Client Code</th>
+					<th>Client Name</th>
+					<th>Client Class</th>
+					<th>Client State</th>
+
+					<th>Start Date</th>
+					<th>End Date</th>
+					<th>License</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var obj in Model.ClientProductList)
+				{
+					<tr>
+						<td>@obj.Client.Code</td>
+						<td>@obj.Client.Name</td>
+						<td>@obj.Client.Class</td>
+						<td>@obj.Client.State</td>
+						<td>@obj.StartDate</td>
+						<td>@obj.EndDate</td>
+						<td>@obj.License</td>
+					</tr>
+				}
+
+			</tbody>
+		</table>
+
+	</div>
+}

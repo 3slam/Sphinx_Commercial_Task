@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sphinx_Commercial_Task.Data\Sphinx_Commercial_Task.Data.csproj" />
+    <ProjectReference Include="..\Sphinx_Commercial_Task.Repository\Sphinx_Commercial_Task.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

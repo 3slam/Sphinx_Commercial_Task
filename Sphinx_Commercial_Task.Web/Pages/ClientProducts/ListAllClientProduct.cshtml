@@ -1,0 +1,71 @@
+﻿@page
+@model Sphinx_Commercial_Task.Web.Pages.ClientProducts.ListAllClientProductModel
+
+@{
+    Layout = "_Layout";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+}
+
+
+<div class="container p-3">
+    <div class="row pt-4" style="margin-top:5px ;margin-bottom:5px">
+        <div class="col-6">
+            <h2 class="text-primary">Client Products List</h2>
+            <a asp-page="Create" class="btn btn-primary">
+                <i class="bi bi-plus-square"></i> &nbsp;Create New ClientProduct
+            </a>
+        </div>
+
+    </div>
+
+    <table class="table table-bordered table-striped" style="width:100%" id="tbllist">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Client Name</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>License</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model.ClientProducts)
+            {
+                <tr>
+                    <td>@obj.Product.Name</td>
+                    <td>@obj.Client.Name</td>
+                    <td>@obj.StartDate</td>
+                    <td>@obj.EndDate</td>
+                    <td>@obj.License</td>
+                    <td>
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-page="Edit" asp-route-id="@obj.Id" class="btn btn-success mx-2">
+                                Edit
+                            </a>
+                            <a asp-page="Delete" asp-route-id="@obj.Id" class="btn btn-danger mx-2">
+                                Delete
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#tbllist').DataTable({
+                searching: false,
+                ordering: false
+            });
+        });
+    </script>
+}

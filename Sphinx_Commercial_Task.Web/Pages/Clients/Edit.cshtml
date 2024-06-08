@@ -1,0 +1,45 @@
+﻿@page
+@model Sphinx_Commercial_Task.Web.Pages.Clients.EditModel
+
+<form method="post">
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 class="text-primary pl-3">Edit Client</h2>
+			<hr />
+		</div>
+
+		<input asp-for="ClientId" hidden class="form-control" />
+		<input asp-for="Client.Code" hidden class="form-control" />
+
+
+
+		<div class="mb-3">
+			<label asp-for="Client.Name"></label>
+			<input asp-for="Client.Name" class="form-control" />
+			<span asp-validation-for="Client.Name" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="Client.State"></label>
+			<select asp-for="Client.State" class="form-control" asp-items="Model.States"></select>
+			<span asp-validation-for="Client.State" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="Client.Class"></label>
+			<select asp-for="Client.Class" class="form-control" asp-items="Model.Classes"></select>
+			<span asp-validation-for="Client.Class" class="text-danger"></span>
+		</div>
+
+		<button type="submit" class="btn btn-primary" style="width:150px;">Edit</button>
+		<a asp-page="ListAllClients" class="btn btn-secondary" style="width:150px;"> Back to List</a>
+
+	</div>
+
+</form>
+
+@section Scripts {
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+}

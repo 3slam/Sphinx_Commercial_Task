@@ -1,0 +1,45 @@
+﻿@page
+@model Sphinx_Commercial_Task.Web.Pages.ClientProducts.DeleteModel
+ 
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary pl-3">Delete Client Product</h2>
+            <hr />
+        </div>
+        <input hidden asp-for="ClientProduct.Id" />
+        <div class="mb-3">
+            <label asp-for="ClientProduct.Product.Name"></label>
+            <input asp-for="ClientProduct.Product.Name" disabled class="form-control" />
+
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ClientProduct.Client.Name"></label>
+            <input asp-for="ClientProduct.Client.Name" disabled class="form-control" />
+
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ClientProduct.StartDate"></label>
+            <input asp-for="ClientProduct.StartDate" disabled class="form-control" />
+            
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ClientProduct.EndDate"></label>
+            <input asp-for="ClientProduct.EndDate" disabled class="form-control" />
+             
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ClientProduct.License"></label>
+            <input asp-for="ClientProduct.License" disabled class="form-control" />
+            
+        </div>
+
+        <button type="submit" class="btn btn-danger" style="width:150px;">Delete</button>
+        <a asp-page="ListAllClientProduct" class="btn btn-secondary"> Back to Client List</a>
+    </div>
+</form>

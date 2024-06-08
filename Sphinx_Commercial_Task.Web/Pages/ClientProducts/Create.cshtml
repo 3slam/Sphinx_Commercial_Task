@@ -1,0 +1,58 @@
+﻿@page
+@model Sphinx_Commercial_Task.Web.Pages.ClientProducts.CreateModel
+ 
+@{
+    ViewData["Title"] = "Create Client Product";
+}
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary pl-3">Create Client Product</h2>
+            <hr />
+        </div>
+
+        <div class="mb-3">
+            <label for="ProductId">Product</label>
+            <select asp-for="ClientProduct.ProductId" class="form-control" asp-items="Model.Products">
+                <option value="">-- Select Product --</option>
+            </select>
+            <span asp-validation-for="ClientProduct.ProductId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="ClientId">Client</label>
+            <select asp-for="ClientProduct.ClientId" class="form-control" asp-items="Model.Clients">
+                <option value="">-- Select Client --</option>
+            </select>
+            <span asp-validation-for="ClientProduct.ClientId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ClientProduct.StartDate"></label>
+            <input asp-for="ClientProduct.StartDate" class="form-control" />
+            <span asp-validation-for="ClientProduct.StartDate" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ClientProduct.EndDate"></label>
+            <input asp-for="ClientProduct.EndDate" class="form-control" />
+            <span asp-validation-for="ClientProduct.EndDate" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ClientProduct.License"></label>
+            <input asp-for="ClientProduct.License" class="form-control" />
+            <span asp-validation-for="ClientProduct.License" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:150px;">Create</button>
+        <a asp-page="ListAllClientProduct" class="btn btn-secondary"> Back to Client List</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

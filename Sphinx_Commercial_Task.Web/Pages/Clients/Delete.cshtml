@@ -1,0 +1,37 @@
+﻿@page
+@model Sphinx_Commercial_Task.Web.Pages.Clients.DeleteModel
+
+<form method="post">
+	<input hidden asp-for="Client.Id" />
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 class="text-primary pl-3">Delete Client</h2>
+			<hr />
+		</div>
+		<div class="mb-3">
+			<label asp-for="Client.Code"></label>
+			<input asp-for="Client.Code" disabled class="form-control" />
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="Client.Name"></label>
+			<input asp-for="Client.Name" disabled class="form-control" />
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="Client.State"></label>
+			<input asp-for="Client.State" disabled class="form-control" />
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="Client.Class"></label>
+			<input asp-for="Client.Class" disabled class="form-control" />
+		</div>
+		 
+		<button type="submit" class="btn btn-danger" style="width:150px;">Delete</button>
+		<a asp-page="ListAllClients" class="btn btn-secondary" style="width:150px;"> Back to List</a>
+	</div>
+
+</form>
+
+ 
