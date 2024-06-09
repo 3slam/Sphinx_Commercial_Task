@@ -26,7 +26,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Sphinx_Commercial_Task.Data\Sphinx_Commercial_Task.Data.csproj" />
-    <ProjectReference Include="..\Sphinx_Commercial_Task.Service\Sphinx_Commercial_Task.Service.csproj" />
+    <ProjectReference Include="..\Sphinx_Commercial_Task.Repository\Sphinx_Commercial_Task.Repository.csproj" />
   </ItemGroup>
 
 </Project>

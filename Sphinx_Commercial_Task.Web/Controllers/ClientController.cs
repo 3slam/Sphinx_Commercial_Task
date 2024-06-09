@@ -1,20 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Sphinx_Commercial_Task.Service.IServices;
+using Sphinx_Commercial_Task.Repository;
+
 
 namespace Sphinx_Commercial_Task.Web.Controllers
 {
 
 
-	[Route("api/[controller]")]
-	[ApiController]
-	public class ClientController(IClientService service) : Controller
-	{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ClientController(IUnitOfWork unitOfWork) : Controller
+    {
 
-		[HttpGet]
-		public IActionResult Get()
-		{
-			var list = service.GetClients();
-			return Json(new { data = list });
-		}
-	}
+        [HttpGet]
+        public IActionResult Get()
+        {
+            var list = unitOfWork.Client.GetTableNoTracking().ToList();
+            return Json(new { data = list });
+        }
+    }
 }
